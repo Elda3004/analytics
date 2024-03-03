@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: debug
+
+delimiter: ;
+articles_path: data/articles
