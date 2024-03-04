@@ -13,7 +13,7 @@ public class ProcessCompaniesCommand {
     @Autowired
     private ICompanyService companyService;
 
-    @ShellMethod(value = "Read csv file of companies and cache results", key = "process-companies")
+    @ShellMethod(value = "Read csv file of companies and cache results", key = "read-companies")
     public void processCompaniesFile() throws IOException {
         try {
             companyService.processCompanies();

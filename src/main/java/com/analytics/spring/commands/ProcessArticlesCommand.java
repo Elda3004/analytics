@@ -12,7 +12,7 @@ public class ProcessArticlesCommand {
     @Autowired
     private IArticleReaderService articleReaderService;
 
-    @ShellMethod(value = "Read xml files of articles and cache results", key = "process-articles")
+    @ShellMethod(value = "Read xml files of articles and cache results", key = "read-articles")
     public void processCompaniesFile() throws IOException {
         try {
             articleReaderService.processArticles();

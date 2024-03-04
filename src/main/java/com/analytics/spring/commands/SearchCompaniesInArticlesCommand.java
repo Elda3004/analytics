@@ -15,14 +15,14 @@ public class SearchCompaniesInArticlesCommand {
     @Autowired
     private ICompanyArticleProcessorService companyArticleProcessorService;
 
-    @ShellMethod(value = "Search for list of companies in the given articles", key = "search-companies")
+    @ShellMethod(value = "Search for list of companies in the given articles", key = "search-articles")
     public Disposable searchCompaniesMentionedInArticles() throws IOException {
         try {
             Flux<Company> companyFlux = companyArticleProcessorService.findCompaniesMentionedInArticles();
             return  companyFlux.subscribe(
-                    System.out::println,  // Print each emitted element to the console
-                    System.err::println,  // Handle errors (if any)
-                    () -> System.out.println("Flux completed")  // Handle completion of the Flux
+                    System.out::println,
+                    System.err::println,
+                    () -> System.out.println("Flux completed")
             );
         } catch (IOException exception) {
             throw new IOException(exception);

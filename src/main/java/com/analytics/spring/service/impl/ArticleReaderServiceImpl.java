@@ -32,14 +32,14 @@ public class ArticleReaderServiceImpl implements IArticleReaderService {
                 PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
                 Resource[] resources = resolver.getResources("classpath:"+articlesPath+"/*.xml");
                 return Flux.fromArray(resources)
-                        //.limitRate(5000)
                         .parallel()
                         .runOn(Schedulers.parallel())
                         .flatMap(resource -> {
                             Mono<Article> articleDtoMono = readAndParseXML(resource);
                             return Flux.merge(articleDtoMono);
                         })
-                        .sequential();
+                        .sequential()
+                        .cache();
             } catch (IOException e) {
                 return Flux.error(e);
             }
