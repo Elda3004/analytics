@@ -9,6 +9,8 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class XmlSaxParserUtil extends DefaultHandler {
     private static final String TEXT = "text";
+    private static final String TITLE = "title";
+
     @Getter
     @ThreadSafe
     private Article article;
@@ -29,15 +31,22 @@ public class XmlSaxParserUtil extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String lName, String qName, Attributes attr) throws SAXException {
-        if (qName.equals(TEXT)) {
-            elementValue = new StringBuilder();
+        switch (qName) {
+            case TEXT, TITLE:
+                elementValue = new StringBuilder();
+                break;
         }
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals(TEXT)) {
-            article.setContent(elementValue.toString().trim());
+        switch (qName) {
+            case TEXT:
+                article.setContent(elementValue.toString().trim());
+                break;
+            case TITLE:
+                article.setTitle(elementValue.toString().trim());
+                break;
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.analytics.spring.commands;
 
-import com.analytics.spring.dto.Company;
+import com.analytics.spring.dto.CompanyArticleRecord;
 import com.analytics.spring.service.ICompanyArticleProcessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
@@ -18,8 +18,9 @@ public class SearchCompaniesInArticlesCommand {
     @ShellMethod(value = "Search for list of companies in the given articles", key = "search-articles")
     public Disposable searchCompaniesMentionedInArticles() throws IOException {
         try {
-            Flux<Company> companyFlux = companyArticleProcessorService.findCompaniesMentionedInArticles();
-            return  companyFlux.subscribe(
+            Flux<CompanyArticleRecord> companiesMentionedInArticles = companyArticleProcessorService
+                    .findCompaniesMentionedInArticles();
+            return  companiesMentionedInArticles.subscribe(
                     System.out::println,
                     System.err::println,
                     () -> System.out.println("Flux completed")
