@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 
 import java.io.IOException;
 
-public interface ICompanyService {
+public interface ICompanyArticleProcessorService {
 
-    Flux<Company> processCompanies() throws IOException;
+    Flux<Company> findCompaniesMentionedInArticles() throws IOException;
 }
