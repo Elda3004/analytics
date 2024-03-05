@@ -9,8 +9,8 @@ Spring Boot Proof of Concept project to find mentioned companies in a given list
 * [![SpringBoot 3]
 * [![Java 21]
 * [![Spring Webflux]
-* * [![Spring Shell]
-* * [![Sax(Simple API xml)]
+* [![Spring Shell]
+* [![Sax(Simple API xml)]
 
 <!-- GETTING STARTED -->
 ## Getting Started
