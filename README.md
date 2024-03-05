@@ -52,3 +52,9 @@ To archive the reading of multiple xml files and parse the content of each artic
 2. Create unit test to address negative use cases when an error is thrown
 3. Create tests for commands
 4. Improve the efficiency of the filter algorithm for retrieving the companies found in news faster
+
+<!-- Possible More Optiomal Solution -->
+1. Read the csv file of companies in parallel and insert companies in DB
+2. Read the xml files in parallel of articles and insert in ElasticSearch
+3. After inserting into ElasticSearch we will have an index content of articles
+4. After this we can full text search into the news articles contents for the list of companies mentioned in the articles
