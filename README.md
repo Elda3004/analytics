@@ -18,16 +18,15 @@ Spring Boot Proof of Concept project to find mentioned companies in a given list
 Download the as a zip folder or pull from Github link: https://github.com/Elda3004/analytics.git 
 Install all the dependencies and start the project.
 
-<!-- USAGE EXAMPLES -->
-## Usage
+## USAGE
 
-<!-- FUNCTIONALITIES -->
+### Functionalities
 1. Read a large csv file from resources folder, parallel process the companies list and puts in the in-memory cache
 2. Read in parallel multiple xml files from resources folder and processes the content of each article then puts the data into in-memory cache
 3. Filter in parallel the companies and articles and find articles where the companies are mentioned
 4. For fast parsing and reading the xml files I have used SAX reader which is thread safe and uses low memory for reading files
 
-<!-- After Building the Project -->
+### After Building the Project
 1. Execute this shell command to read xml files and put into cache
   ``read-articles``
 
@@ -46,14 +45,14 @@ Spring Webflux asynchronous non-blocking model to process these data.
 
 To archive the reading of multiple xml files and parse the content of each article I have used parallel processing with Spring Webflux
 
-<!-- Improvements -->
+### Improvements
 
 1. Improve error handling when Async task executor rejects a task in parallel processing
 2. Create unit test to address negative use cases when an error is thrown
 3. Create tests for commands
 4. Improve the efficiency of the filter algorithm for retrieving the companies found in news faster
 
-<!-- Possible More Optiomal Solution -->
+### Possible More Optiomal Solution
 1. Read the csv file of companies in parallel and insert companies in DB
 2. Read the xml files in parallel of articles and insert in ElasticSearch
 3. After inserting into ElasticSearch we will have an index content of articles
